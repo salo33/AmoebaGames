@@ -4,12 +4,12 @@ using System.Collections.Generic;
 
 public class Frame : MonoBehaviour 
 {
-    int FrameMaxCount = 16;
+    int FrameMaxRowCount = 4;
     List<Contents> ContentsList = new List<Contents>();
 
 	// Use this for initialization
 	void Start () {
-	
+        Test();
 	}
 	
 	// Update is called once per frame
@@ -17,16 +17,16 @@ public class Frame : MonoBehaviour
 	
 	}
 
-    public void SetMaxCount(int maxCount)
+    public void SetMaxRowCount(int maxRowCount)
     {
-        FrameMaxCount = maxCount;
+        FrameMaxRowCount = maxRowCount;
         NewGame();
     }
 
     public void NewGame()
     {
         ContentsList.Clear();
-        for(int i = 0; i < FrameMaxCount; ++i)
+        for (int i = 0; i < FrameMaxRowCount * FrameMaxRowCount; ++i)
         {
             Contents newContents = new Contents();
             newContents.SetNumber(0);
@@ -34,6 +34,14 @@ public class Frame : MonoBehaviour
             ContentsList.Add(newContents);
         }
 
-        ContentsList[FrameMaxCount - 1].SetNumber(1);
+        ContentsList[FrameMaxRowCount * FrameMaxRowCount - 1].SetNumber(1);
+    }
+
+    public void Test()
+    {
+        for(int i = 1; i < 10; ++i)
+        {
+            Debug.Log(i * i);
+        }
     }
 }
