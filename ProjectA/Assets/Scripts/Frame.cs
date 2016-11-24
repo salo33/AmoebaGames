@@ -39,9 +39,6 @@ public class Frame : MonoBehaviour
 
     public void Test()
     {
-        for(int i = 1; i < 10; ++i)
-        {
-            Debug.Log(i * i);
-        }
+       
     }
 }
